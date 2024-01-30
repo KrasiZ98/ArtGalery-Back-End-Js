@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style/css/style.css">
+    <title>{{title}}</title>
+</head>
+
+<body>
+    <nav>
+
+        <img src="/style/img/art-logo.png" alt="logo">
+        <a href="/">ArtGallery</a>
+
+        <ul class="menu">
+            <li><a href="/catalog">Gallery</a></li>
+            <!-- Logged users -->
+            {{#if user}}
+            <li><a href="/action/create">Create Publication</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/auth/logout">Logout</a></li>
+            <!-- Guest users -->
+            {{else}}
+            <li><a href="/auth/login">Login</a></li>
+            <li><a href="/auth/register">Register</a></li>
+            {{/if}}
+        </ul>
+
+    </nav>
+
+    {{#if errors}}
+    <div class="error-box">
+        {{#each errors}}
+        <p>{{this}}</p>
+        {{/each}}
+    </div>
+    {{/if}}
+
+    {{{body}}}
+
+    <footer>
+        © Js Back-End Retake Exam 2021
+    </footer>
+
+</body>
+
+</html>

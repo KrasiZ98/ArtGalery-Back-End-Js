@@ -1,0 +1,31 @@
+<main>
+
+    <section id="gallery">
+        <h1>Gallery</h1>
+        <article class="gallery-container">
+            {{#if post}}
+            <!--If there are art publications in the database, show each of them-->
+            {{#each post}}
+            <article class="card-info">
+                <article class="card-info-image">
+                    <img src="{{this.picture}}" alt="art-image">
+                </article>
+                <article class="card-info-text">
+                    <h2>Title: {{this.title}}</h2>
+                    <h3>Certificate of authenticity: {{this.certificate}}</h3>
+                    <a href="/action/{{this._id}}/details" class="details-btn">Details</a>
+                </article>
+            </article>
+            {{/each}}
+            {{else}}
+            <!--If there are still no art publications in the database display:-->
+            <article class="no-publication">
+                <h1>There are no publications yet.</h1>
+                <a href="/action/create" class="view-gallery">View Gallery</a>
+            </article>
+            {{/if}}
+
+        </article>
+    </section>
+
+</main>
